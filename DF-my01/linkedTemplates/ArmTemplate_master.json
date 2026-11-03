@@ -1,0 +1,174 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DF-my01"
+		},
+		"LS_ADLS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ADLS'"
+		},
+		"LS_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL'"
+		},
+		"LS_SQL2SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL2SQL'"
+		},
+		"LS_SQL_PARAM_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_PARAM'"
+		},
+		"LS_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "servermy01.database.windows.net"
+		},
+		"LS_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "db_my01"
+		},
+		"LS_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "santhosh"
+		},
+		"LS_SQL2SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "servermy01.database.windows.net"
+		},
+		"LS_SQL2SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "db_my01"
+		},
+		"LS_SQL2SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "santhosh"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().ls_server_name}"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().ls_db_name}"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "santhosh"
+		},
+		"Tumbling trigger1_properties_pipeline_parameters_window_start_time": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"Tumbling trigger1_properties_pipeline_parameters_window_end_time": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"eventtrigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/28ad7d23-2ca6-4798-a45a-dab82e9fcd42/resourceGroups/RG-01/providers/Microsoft.Storage/storageAccounts/adlsmy01"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DF-my01_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_ADLS_connectionString": {
+						"value": "[parameters('LS_ADLS_connectionString')]"
+					},
+					"LS_SQL_password": {
+						"value": "[parameters('LS_SQL_password')]"
+					},
+					"LS_SQL2SQL_password": {
+						"value": "[parameters('LS_SQL2SQL_password')]"
+					},
+					"LS_SQL_PARAM_password": {
+						"value": "[parameters('LS_SQL_PARAM_password')]"
+					},
+					"LS_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_properties_typeProperties_server')]"
+					},
+					"LS_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_properties_typeProperties_database')]"
+					},
+					"LS_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_properties_typeProperties_userName')]"
+					},
+					"LS_SQL2SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL2SQL_properties_typeProperties_server')]"
+					},
+					"LS_SQL2SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL2SQL_properties_typeProperties_database')]"
+					},
+					"LS_SQL2SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL2SQL_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_PARAM_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_PARAM_properties_typeProperties_server')]"
+					},
+					"LS_SQL_PARAM_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_PARAM_properties_typeProperties_database')]"
+					},
+					"LS_SQL_PARAM_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_PARAM_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DF-my01_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Tumbling trigger1_properties_pipeline_parameters_window_start_time": {
+						"value": "[parameters('Tumbling trigger1_properties_pipeline_parameters_window_start_time')]"
+					},
+					"Tumbling trigger1_properties_pipeline_parameters_window_end_time": {
+						"value": "[parameters('Tumbling trigger1_properties_pipeline_parameters_window_end_time')]"
+					},
+					"eventtrigger1_properties_typeProperties_scope": {
+						"value": "[parameters('eventtrigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DF-my01_ArmTemplate_0')]"
+			]
+		}
+	]
+}

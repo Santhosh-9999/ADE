@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DF-my01"
+		},
+		"LS_ADLS_connectionString": {
+			"value": ""
+		},
+		"LS_SQL_password": {
+			"value": ""
+		},
+		"LS_SQL2SQL_password": {
+			"value": ""
+		},
+		"LS_SQL_PARAM_password": {
+			"value": ""
+		},
+		"LS_SQL_properties_typeProperties_server": {
+			"value": "servermy01.database.windows.net"
+		},
+		"LS_SQL_properties_typeProperties_database": {
+			"value": "db_my01"
+		},
+		"LS_SQL_properties_typeProperties_userName": {
+			"value": "santhosh"
+		},
+		"LS_SQL2SQL_properties_typeProperties_server": {
+			"value": "servermy01.database.windows.net"
+		},
+		"LS_SQL2SQL_properties_typeProperties_database": {
+			"value": "db_my01"
+		},
+		"LS_SQL2SQL_properties_typeProperties_userName": {
+			"value": "santhosh"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_server": {
+			"value": "@{linkedService().ls_server_name}"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_database": {
+			"value": "@{linkedService().ls_db_name}"
+		},
+		"LS_SQL_PARAM_properties_typeProperties_userName": {
+			"value": "santhosh"
+		},
+		"Tumbling trigger1_properties_pipeline_parameters_window_start_time": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"Tumbling trigger1_properties_pipeline_parameters_window_end_time": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"eventtrigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/28ad7d23-2ca6-4798-a45a-dab82e9fcd42/resourceGroups/RG-01/providers/Microsoft.Storage/storageAccounts/adlsmy01"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
