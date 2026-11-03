@@ -1,0 +1,25 @@
+{
+	"name": "dynamic_tbl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL2SQL",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tble_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().tble_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

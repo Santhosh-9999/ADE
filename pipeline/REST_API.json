@@ -1,0 +1,19 @@
+{
+	"name": "REST_API",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait for REST",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-11-02T14:09:53Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,15 @@
+{
+	"name": "DF-my01",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "indiasouthcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a7fe404f-bc81-4399-83b4-796850d8945b",
+		"tenantId": "7c1321ae-2dca-4643-a1b3-25c030268935"
+	}
+}
