@@ -96,7 +96,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "DELETE @{}",
+											"value": "DELETE FROM @{item().TableName}",
 											"type": "Expression"
 										}
 									}
