@@ -1,9 +1,9 @@
 {
-	"name": "Wait pipeline1",
+	"name": "Wait pipeline1 Updated",
 	"properties": {
 		"activities": [
 			{
-				"name": "Wait Activity 1",
+				"name": "Wait Activity 1 Updated",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
