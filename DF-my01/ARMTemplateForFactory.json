@@ -316,7 +316,7 @@
 						"type": "IfCondition",
 						"dependsOn": [
 							{
-								"activity": "Get Metadata",
+								"activity": "Get File Data from EMP Sal",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -325,7 +325,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@activity('Get Metadata').output.exists",
+								"value": "@activity('Get File Data from EMP Sal').output.exists",
 								"type": "Expression"
 							},
 							"ifFalseActivities": [
@@ -417,7 +417,7 @@
 						}
 					},
 					{
-						"name": "Get Metadata",
+						"name": "Get File Data from EMP Sal",
 						"type": "GetMetadata",
 						"dependsOn": [],
 						"policy": {
@@ -439,7 +439,6 @@
 							],
 							"storeSettings": {
 								"type": "AzureBlobStorageReadSettings",
-								"recursive": true,
 								"enablePartitionDiscovery": false
 							},
 							"formatSettings": {
